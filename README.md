@@ -1,13 +1,13 @@
 # No-More-MacroBrews
 Microbrewery search app; powered by https://www.openbrewerydb.org/
 
-##Technologies Used
+## Technologies Used
 
 
-##Approach
+## Approach
 
 
-##Visit the Live Site
+## Visit the Live Site
 
 
-##Unresolved Issues and Opportunities for Expansion
+## Unresolved Issues and Opportunities for Expansion
