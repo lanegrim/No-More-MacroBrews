@@ -1,8 +1,7 @@
 # No-More-MacroBrews
-Microbrewery search app; powered by https://www.openbrewerydb.org/
 
 ## Technologies Used
-
+No More Macrobrews is a microbrewery search app powered by https://www.openbrewerydb.org/
 
 ## Approach
 
