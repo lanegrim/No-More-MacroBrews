@@ -52,4 +52,4 @@ const logData = (city, state) => {
         );
     };
 };
-logData('san diego', 'california');
+logData('atlanta', 'georgia');

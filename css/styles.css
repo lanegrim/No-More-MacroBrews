@@ -1,6 +1,5 @@
 body {
     background-color: #d9e2eb;
-    color:#fff;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -17,11 +16,13 @@ h1 {
     width: 60%;
     background-color: #1a3c5a;
     padding: 1em 2em;
+    border-radius: 30px;
 }
 
 .title-card{
 font-size: 2.5em;
 margin: .5em 0;
+color: #d9e2eb;
 }
 
 .entry-card {
@@ -29,7 +30,10 @@ margin: .5em 0;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    border-bottom: 1px solid #fff;
+    padding: 1em 1em;
+    background-color: #d9e2eb;
+    margin-bottom: .5em;
+    border-radius: 20px;
 }
 
 .name-block {
@@ -45,20 +49,21 @@ margin: .5em 0;
 .entry-name {
     font-size: 1.5em;
     margin-bottom: .25em;
+    color: #1a3c5a;
 }
 
 a, p{
     margin-top: .25em;
     margin-bottom: 0;
+    color: #1a3c5a;
 }
 
 .website {
     display: inline-block;
-    color: #fff;
     text-decoration: none;
     margin-bottom: .5em;
 }
 
 a:hover {
-    color: #7acbda;
+    color: #2c626b;
 }
