@@ -1,5 +1,5 @@
 body {
-    background-color: #1a3c5a;
+    background-color: #d9e2eb;
     color:#fff;
     width: 100%;
     display: flex;
@@ -7,20 +7,56 @@ body {
     align-items: center;
 }
 
+h1 {
+    color: #1a3c5a;
+    font-size: 5em;
+    margin: 0;
+}
+
 #entries {
     width: 60%;
+    background-color: #1a3c5a;
+    padding: 1em 2em;
+}
+
+.title-card{
+font-size: 2.5em;
+margin: .5em 0;
 }
 
 .entry-card {
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
     border-bottom: 1px solid #fff;
+}
+
+.name-block {
+    box-sizing: border-box;
+    width: 65%;
+}
+
+.address-block {
+    box-sizing: border-box;
+    width: 35%;
+}
+
+.entry-name {
+    font-size: 1.5em;
+    margin-bottom: .25em;
+}
+
+a, p{
+    margin-top: .25em;
+    margin-bottom: 0;
 }
 
 .website {
     display: inline-block;
     color: #fff;
     text-decoration: none;
+    margin-bottom: .5em;
 }
 
 a:hover {

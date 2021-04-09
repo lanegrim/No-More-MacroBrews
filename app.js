@@ -1,19 +1,32 @@
-addNewData = (data) => {
+createCard = (data) => {
     for (const brew in data) {
-        const $newEntry = $('<div>').text(data[brew].name).addClass('entry-card');
+        const $newEntry = $('<div>').addClass('entry-card');
+        const $newNameBlock = $('<div>').addClass('name-block');
+        $newEntry.append($newNameBlock);
+        const $newName = $('<p>').text(data[brew].name).addClass('entry-name');
+        $newNameBlock.append($newName);
+
         if (data[brew].website_url) {
             const $newWebsite = $('<a>').text(data[brew].website_url).attr('href', data[brew].website_url).attr('target', '_blank').addClass('website');
-            $newEntry.append($newWebsite);
+            $newNameBlock.append($newWebsite);
         } else {
-            const $newWebsite = $('<div>').text('Not Available').addClass('website');
-            $newEntry.append($newWebsite);
-        }
+            const $newWebsite = $('<p>').text('Website Not Available').addClass('website');
+            $newNameBlock.append($newWebsite);
+        };
+
+        const $newStreetAddressBlock = $('<div>').addClass('address-block');
+        const $newStreetAddressLine1 = $('<p>').addClass('address-line').text(data[brew].street);
+        const $newStreetAddressLine2 = $('<p>').text(`${data[brew].city}, ${data[brew].state} ${data[brew].postal_code}`);
+        $newStreetAddressBlock.append($newStreetAddressLine1);
+        $newStreetAddressBlock.append($newStreetAddressLine2);
+        $newEntry.append($newStreetAddressBlock);
+
         $('#entries').append($newEntry);
     };
 };
 
 addNewTitleCard = (type) => {
-    $newTitleCard = $('<div>').text(type).css('font-size', '2em');
+    $newTitleCard = $('<div>').text(type).addClass('title-card');
     $('#entries').append($newTitleCard);
 };
 
@@ -30,7 +43,7 @@ const logData = (city, state) => {
                 console.log(data);
                 if (data.length > 0) {
                     addNewTitleCard(breweryTypes[i])
-                    addNewData(data);
+                    createCard(data);
                 };
             },
             () => {
@@ -39,4 +52,4 @@ const logData = (city, state) => {
         );
     };
 };
-logData('Denver', 'Colorado');
+logData('san diego', 'california');
