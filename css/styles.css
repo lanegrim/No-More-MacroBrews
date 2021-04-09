@@ -1,3 +1,28 @@
 body {
-    background-color: slategray;
+    background-color: #1a3c5a;
+    color:#fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#entries {
+    width: 60%;
+}
+
+.entry-card {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+}
+
+.website {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7acbda;
 }
