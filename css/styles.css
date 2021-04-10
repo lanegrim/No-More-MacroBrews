@@ -102,6 +102,13 @@ a, p{
     margin-bottom: .5em;
 }
 
+#definition-tooltips {
+    display: none;
+}
+
+
+
+
 a:hover {
     color: #2c626b;
 }
