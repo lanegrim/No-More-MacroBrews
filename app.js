@@ -52,4 +52,7 @@ const logData = (city, state) => {
         );
     };
 };
+
+
+
 logData('atlanta', 'georgia');
