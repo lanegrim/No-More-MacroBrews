@@ -28,9 +28,10 @@ createCard = (data) => {
 addNewTitleCard = (type) => {
     $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
     $newTypeTitle = $('<h2>').text(type).addClass('type-title');
-    $($newTitleCard).append($newTypeTitle);
+    $newTitleCard.append($newTypeTitle);
     $('#entries').append($newTitleCard);
 };
+
 const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
 
 const callAPI = (city, state, i) => {
@@ -50,6 +51,11 @@ const callAPI = (city, state, i) => {
 
 
 const findData = (city, state) => {
+    // $('#click-instructions').remove();
+    // const $clickForDefinition = $('<p>').text('Click each brewery type to see a definition.')
+    //     .attr('id', 'click-instructions').css('color', '#d9e2eb');
+    // $('#entries').append($clickForDefinition);
+
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
@@ -68,5 +74,14 @@ $searchButton.on('click', (event) => {
     const $searchState = $('#state').val();
     findData($searchCity, $searchState);
 });
+
+
+$(window).on('mouseover', (event) => {
+    if ($(event.target).attr('class') === 'type-title') {
+        console.log('hovered');
+    };
+});
+
+
 
 // logData('atlanta', 'georgia');
