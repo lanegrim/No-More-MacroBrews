@@ -16,14 +16,14 @@ h1 {
     color: #1a3c5a;
     font-family: 'Source Serif Pro', serif;
     font-size: 4rem;
-    margin: 0;
+    margin: 0 0 .6rem 0;
     text-align: left;
     line-height: .9;
 }
 
 #entries {
     box-sizing: border-box;
-    width: 80%;
+    width: 85%;
     background-color: #1a3c5a;
     padding: 1em 2em;
 }
@@ -46,7 +46,7 @@ color: #d9e2eb;
     flex-flow: row wrap;
     align-items: center;
     padding: 1em 1em;
-    background-color: #d9e2eb;
+    background-color: #fcfdfd;
     margin-bottom: .75em;
     border-radius: 5px;
 }
@@ -59,6 +59,10 @@ color: #d9e2eb;
 .address-block {
     box-sizing: border-box;
     width: 35%;
+}
+
+.address-line2 {
+    margin-top: 0;
 }
 
 .entry-name {

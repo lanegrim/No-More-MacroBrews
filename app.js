@@ -15,8 +15,8 @@ createCard = (data) => {
         };
 
         const $newStreetAddressBlock = $('<div>').addClass('address-block');
-        const $newStreetAddressLine1 = $('<p>').addClass('address-line').text(data[brew].street);
-        const $newStreetAddressLine2 = $('<p>').text(`${data[brew].city}, ${data[brew].state} ${data[brew].postal_code}`);
+        const $newStreetAddressLine1 = $('<p>').addClass('address-line1').text(data[brew].street);
+        const $newStreetAddressLine2 = $('<p>').text(`${data[brew].city}, ${data[brew].state} ${data[brew].postal_code}`).addClass('address-line2');
         $newStreetAddressBlock.append($newStreetAddressLine1);
         $newStreetAddressBlock.append($newStreetAddressLine2);
         $newEntry.append($newStreetAddressBlock);
