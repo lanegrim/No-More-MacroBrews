@@ -28,6 +28,7 @@ h1 {
     width: 85%;
     background-color: #1a3c5a;
     padding: 1em 2em;
+    border-radius: 5px;
 }
 
 #search-prompt {
@@ -36,6 +37,7 @@ h1 {
 }
 
 .title-card{
+width: 50%;
 font-size: 2.5rem;
 font-family: 'Source Serif Pro', serif;
 margin: .5rem 0;
@@ -77,6 +79,10 @@ a, p{
     margin-top: .25em;
     margin-bottom: 0;
     color: #1a3c5a;
+}
+
+#search-prompt {
+    margin-top: 0;
 }
 
 .website {

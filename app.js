@@ -40,7 +40,6 @@ const findData = (city, state) => {
             url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '& by_state=' + state
         }).then(
             (data) => {
-                console.log(data);
                 if (data.length > 0) {
                     addNewTitleCard(breweryTypes[i])
                     createCard(data);
