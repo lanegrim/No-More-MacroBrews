@@ -15,6 +15,7 @@ body {
 
 h1 {
     width: 85%;
+    max-width: 1500px;
     color: #1a3c5a;
     font-family: 'Source Serif Pro', serif;
     font-size: 4rem;
@@ -26,6 +27,7 @@ h1 {
 #entries {
     box-sizing: border-box;
     width: 85%;
+    max-width: 1500px;
     background-color: #1a3c5a;
     padding: 1em 2em;
     border-radius: 5px;
@@ -34,7 +36,13 @@ h1 {
 #search-prompt {
     color: #d9e2eb;
     padding-bottom: .25rem;
+    width:100%;
 }
+
+#search-form {
+    width: 100%;
+}
+
 
 .title-card{
 width: 50%;
@@ -95,6 +103,12 @@ a:hover {
     color: #2c626b;
 }
 
+@media(max-width: 700px) {
+    .name-block,
+    .address-block {
+        width: 100%;
+    }
+}
 
 @media(min-width: 1100px) {
     h1, #entries {
@@ -102,9 +116,20 @@ a:hover {
     }
 }
 
-@media(max-width: 700px) {
-    .name-block,
-    .address-block {
+
+@media(min-width: 2000px) {
+    #entries {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .title-card {
         width: 100%;
     }
+
+    .entry-card {
+        width: 49.5%;
+    }
+
 }
