@@ -2,6 +2,8 @@
 font-family: 'Source Serif Pro', serif; */
 
 body {
+    box-sizing: border-box;
+    margin: 0;
     background-color: #d9e2eb;
     width: 100%;
     display: flex;
@@ -12,7 +14,7 @@ body {
 }
 
 h1 {
-    width: 80%;
+    width: 85%;
     color: #1a3c5a;
     font-family: 'Source Serif Pro', serif;
     font-size: 4rem;

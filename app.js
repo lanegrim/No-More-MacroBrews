@@ -31,7 +31,7 @@ addNewTitleCard = (type) => {
 };
 
 
-const logData = (city, state) => {
+const findData = (city, state) => {
 
     const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
 
@@ -54,5 +54,16 @@ const logData = (city, state) => {
 };
 
 
+const $searchButton = $('#search');
 
-logData('atlanta', 'georgia');
+$searchButton.on('click', (event) => {
+    event.preventDefault();
+    $('.entry-card').remove();
+    $('.title-card').remove();
+    const $searchCity = $('#city').val();
+    const $searchState = $('#state').val();
+    findData($searchCity, $searchState);
+});
+
+
+// logData('atlanta', 'georgia');
