@@ -51,10 +51,10 @@ const callAPI = (city, state, i) => {
 
 
 const findData = (city, state) => {
-    // $('#click-instructions').remove();
-    // const $clickForDefinition = $('<p>').text('Click each brewery type to see a definition.')
-    //     .attr('id', 'click-instructions').css('color', '#d9e2eb');
-    // $('#entries').append($clickForDefinition);
+    $('#tooltip-instructions').remove();
+    const $hoverForDefinition = $('<p>').text('Click each brewery type to see a definition.')
+        .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
+    $('#entries').append($hoverForDefinition);
 
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
@@ -75,10 +75,16 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
 });
 
-
 $(window).on('mouseover', (event) => {
     if ($(event.target).attr('class') === 'type-title') {
-        console.log('hovered');
+        let $tooltip = $('<div>').addClass('tooltip');
+        let $tooltipText = $('<p>').text($(`#${$(event.target).text()}-tooltip`).text());
+        $tooltip.append($tooltipText);
+        $(event.target).parent().append($tooltip);
+
+        $(event.target).on('mouseout', (event) => {
+            $(event.target).next().remove();
+        });
     };
 });
 
