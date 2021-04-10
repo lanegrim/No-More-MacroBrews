@@ -49,11 +49,10 @@ const callAPI = (city, state, i) => {
 
 
 const findData = (city, state) => {
-
     for (let i = 0; i < breweryTypes.length; i++) {
-        setTimeout(() => {
+        window.setTimeout(() => {
             callAPI(city, state, i);
-        }, 250);
+        }, 250 * i);
     };
 };
 
