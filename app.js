@@ -36,7 +36,7 @@ const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
 
 const callAPI = (city, state, i) => {
     $.ajax({
-        url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '& by_state=' + state
+        url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '&by_state=' + state
     }).then(
         (data) => {
             if (data.length > 0) {
@@ -52,7 +52,7 @@ const callAPI = (city, state, i) => {
 
 const findData = (city, state) => {
     $('#tooltip-instructions').remove();
-    const $hoverForDefinition = $('<p>').text('Click each brewery type to see a definition.')
+    const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
         .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
     $('#entries').append($hoverForDefinition);
 
