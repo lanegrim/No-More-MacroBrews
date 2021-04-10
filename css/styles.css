@@ -119,12 +119,14 @@ a, p{
 
 .tooltip {
     position:absolute;
-    bottom: -25%;
-    left: 20%;
+    top: .5em;
+    left: 8em;
     width: 80%;
+    max-width: 800px;
     padding: .5em;
     background: #fcfdfd;
-    border: 1px solid #2c626b;
+    border: 3px solid #2c626b;
+    border-radius: 5px;
 }
 
 .tooltip p {
@@ -149,6 +151,11 @@ a:hover {
     .address-block {
         width: 100%;
     }
+
+    .tooltip {
+        width: 50%;
+    }
+
 }
 
 @media(min-width: 1100px) {
