@@ -43,9 +43,12 @@ h1 {
     width: 100%;
 }
 
+.title-card {
 
-.title-card{
-width: 50%;
+}
+
+.type-title{
+width: fit-content;
 font-size: 2.5rem;
 font-family: 'Source Serif Pro', serif;
 margin: .5rem 0;

@@ -26,10 +26,11 @@ createCard = (data) => {
 };
 
 addNewTitleCard = (type) => {
-    $newTitleCard = $('<div>').text(type).addClass('title-card');
+    $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
+    $newTypeTitle = $('<h2>').text(type).addClass('type-title');
+    $($newTitleCard).append($newTypeTitle);
     $('#entries').append($newTitleCard);
 };
-
 const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
 
 const callAPI = (city, state, i) => {
@@ -67,6 +68,5 @@ $searchButton.on('click', (event) => {
     const $searchState = $('#state').val();
     findData($searchCity, $searchState);
 });
-
 
 // logData('atlanta', 'georgia');
