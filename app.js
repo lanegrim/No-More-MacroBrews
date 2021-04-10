@@ -30,25 +30,30 @@ addNewTitleCard = (type) => {
     $('#entries').append($newTitleCard);
 };
 
+const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
+
+const callAPI = (city, state, i) => {
+    $.ajax({
+        url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '& by_state=' + state
+    }).then(
+        (data) => {
+            if (data.length > 0) {
+                addNewTitleCard(breweryTypes[i]);
+                createCard(data);
+            };
+        },
+        () => {
+            console.log('bad');
+        });
+}
+
 
 const findData = (city, state) => {
 
-    const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
-
     for (let i = 0; i < breweryTypes.length; i++) {
-        $.ajax({
-            url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '& by_state=' + state
-        }).then(
-            (data) => {
-                if (data.length > 0) {
-                    addNewTitleCard(breweryTypes[i])
-                    createCard(data);
-                };
-            },
-            () => {
-                console.log('bad');
-            }
-        );
+        setTimeout(() => {
+            callAPI(city, state, i);
+        }, 250);
     };
 };
 
