@@ -91,7 +91,7 @@ h1 {
 #breweries {
     box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     width: 100%;
     padding: 1em .75em 0 .75em;
@@ -107,7 +107,7 @@ h1 {
 .entry-card {
     box-sizing: border-box;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -152,6 +152,12 @@ a, p{
     text-decoration: none;
     margin-bottom: .5em;
 }
+
+.map {
+    box-sizing: border-box;
+    width: 100%;
+}
+
 
 #definition-tooltips {
     display: none;
@@ -199,6 +205,7 @@ a:hover {
 /* media queries */
 
 @media(max-width: 700px) {
+
     .name-block,
     .address-block {
         width: 100%;
@@ -221,6 +228,11 @@ a:hover {
     h1, #entries {
         width: 60%;
     }
+
+    .map {
+        width: 80%;
+        margin: 0 10% 0 10%;
+    }
 }
 
 
@@ -233,6 +245,11 @@ a:hover {
 
     .entry-card {
         width: 49.5%;
+    }
+
+    .map {
+        width: 100%;
+        margin: 0;
     }
 
 }
