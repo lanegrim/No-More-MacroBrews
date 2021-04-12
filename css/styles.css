@@ -4,7 +4,7 @@ font-family: 'Source Serif Pro', serif; */
 body {
     box-sizing: border-box;
     margin: 0;
-    background-color: #f3f5ef;
+    background-color: #f0f7f9;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ body {
 h1 {
     width: 85%;
     max-width: 1500px;
-    color: #4f6367;
+    color: #0F3457;
     font-family: 'Source Serif Pro', serif;
     font-size: 4rem;
     margin: 0 0 .6rem 0;
@@ -28,14 +28,14 @@ h1 {
     box-sizing: border-box;
     width: 85%;
     max-width: 1500px;
-    background-color: #4f6367;
+    background-color: #0F3457;
     padding: 1em 2em;
     border-radius: 5px;
     margin-bottom: 1rem;
 }
 
 #search-prompt {
-    color: #e5e7df;
+    color: #f0f7f9;
     padding-bottom: .25rem;
     width:100%;
 }
@@ -61,13 +61,13 @@ h1 {
     margin-right: .25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #7a9e9f;
-    color: #e5e7df;
+    background-color: #176087;
+    color: #f0f7f9;
 }
 
 .title-card p{
     display: inline-block;
-    color: #e5e7df;
+    color: #f0f7f9;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -89,13 +89,13 @@ h1 {
     justify-content: space-between;
     width: 100%;
     padding: 1em .75em 0 .75em;
-    background-color: #7a9e9f;
+    background-color: #176087;
     border-radius:  0 5px 5px 5px;
 }
 
 .active-tab {
-    background-color: #b8d8d8 !important;
-    color:#4F6367 !important;
+    background-color: #53A2BE !important;
+    color:#0F3457 !important;
 }
 
 .entry-card {
@@ -128,13 +128,13 @@ h1 {
 .entry-name {
     font-size: 1.5rem;
     margin-bottom: .25em;
-    color: #4f6367;
+    color: #0F3457;
 }
 
 a, p{
     margin-top: .25em;
     margin-bottom: 0;
-    color: #4f6367;
+    color: #0F3457;
 }
 
 #search-prompt {
@@ -165,7 +165,7 @@ a, p{
 }
 
 .tooltip p {
-    color:#4f6367;
+    color:#0F3457;
 }
 
 
@@ -181,7 +181,7 @@ a, p{
 }
 
 a:hover {
-    color: #b8d8d8;
+    color: #53A2BE;
 }
 
 /* media queries */
