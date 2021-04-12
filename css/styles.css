@@ -40,6 +40,11 @@ h1 {
     width:100%;
 }
 
+#search {
+    background-color: #fcfdfd;
+    border-radius: 5px;
+}
+
 #search-form {
     width: 100%;
 }
@@ -73,6 +78,7 @@ h1 {
 }
 
 .type-title{
+    box-sizing: border-box;
     display: inline-block;
     width: 100%;
     font-size: 2rem;
@@ -173,6 +179,12 @@ a, p{
 
 .type-title:hover {
     cursor: pointer;
+    color:#FFBC42;
+}
+
+.active-tab .type-title:hover {
+    cursor: default;
+    color:#0F3457;
 }
 
 .tooltip p::selection,
@@ -181,7 +193,7 @@ a, p{
 }
 
 a:hover {
-    color: #53A2BE;
+    color: #FFBC42;
 }
 
 /* media queries */

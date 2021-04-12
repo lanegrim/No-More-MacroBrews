@@ -81,13 +81,13 @@ $searchButton.on('click', (event) => {
     $('#breweries').addClass('active-tab');
 });
 
-$(window).on('mouseover', (event) => {
+$(window).on('mouseenter', (event) => {
     if ($(event.target).attr('class') === 'type-title') {
         let $tooltip = $('<div>').addClass('tooltip');
         let $tooltipText = $('<p>').text($(`#${$(event.target).text()}-tooltip`).text());
         $tooltip.append($tooltipText);
         $(event.target).parent().append($tooltip);
-        $(event.target).on('mouseout', (event) => {
+        $(event.target).on('mouseleave', (event) => {
             $(event.target).next().remove();
         });
     };
