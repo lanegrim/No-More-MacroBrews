@@ -57,7 +57,7 @@ h1 {
     position: relative;
     box-sizing: border-box;
     width: 23%;
-    max-width: 275px;
+    max-width: 200px;
     margin-right: .25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -172,6 +172,11 @@ a, p{
 
 .type-title:hover {
     cursor: pointer;
+}
+
+.tooltip p::selection,
+.type-title::selection {
+    background-color: transparent;
 }
 
 a:hover {
