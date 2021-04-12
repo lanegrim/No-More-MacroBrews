@@ -116,7 +116,6 @@ $(window).on('click', (event) => {
         $('.map').hide();
         if ($(event.target).parent().siblings().eq(1).length === 0) {
             const $newMap = $('<img>').addClass('map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}&markers=color:blue|label:!|${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}|&zoom=14&size=1100x450&maptype=roadmap&key=AIzaSyAKLOP67mzbsOniqbwdcOHikHn-EZ-ghL8`);
-
             $(event.target).parents().eq(1).append($newMap)
         } else {
             $(event.target).parent().siblings().eq(1).toggle();
