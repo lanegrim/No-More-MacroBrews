@@ -21,7 +21,7 @@ createCard = (data) => {
         $newStreetAddressBlock.append($newStreetAddressLine2);
         $newEntry.append($newStreetAddressBlock);
 
-        $('#entries').append($newEntry);
+        $('#breweries').append($newEntry);
     };
 };
 
@@ -51,17 +51,18 @@ const callAPI = (city, state, i) => {
 
 
 const findData = (city, state) => {
-    $('#tooltip-instructions').remove();
     const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
         .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
     $('#search-form').append($hoverForDefinition);
     const $tabBar = $('<div>').attr('id', 'tab-bar');
+    const $breweries = $('<div>').attr('id', 'breweries');
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
         }, 200 * i);
     };
     $('#entries').append($tabBar);
+    $('#entries').append($breweries);
 };
 
 
@@ -69,6 +70,7 @@ const $searchButton = $('#search');
 
 $searchButton.on('click', (event) => {
     event.preventDefault();
+    $('#tooltip-instructions').remove();
     $('#tab-bar').remove();
     $('.entry-card').remove();
     $('.title-card').remove();
