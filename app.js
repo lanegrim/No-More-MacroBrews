@@ -1,6 +1,6 @@
 createCard = (data) => {
     for (const brew in data) {
-        const $newEntry = $('<div>').addClass('entry-card');
+        const $newEntry = $('<div>').addClass('entry-card').addClass(data[brew].brewery_type);
         const $newNameBlock = $('<div>').addClass('name-block');
         $newEntry.append($newNameBlock);
         const $newName = $('<p>').text(data[brew].name).addClass('entry-name');
@@ -23,6 +23,8 @@ createCard = (data) => {
 
         $('#breweries').append($newEntry);
     };
+    $('.entry-card').hide();
+    $('.micro').show();
 };
 
 addNewTitleCard = (type) => {
@@ -30,6 +32,7 @@ addNewTitleCard = (type) => {
     $newTypeTitle = $('<h2>').text(type).addClass('type-title');
     $newTitleCard.append($newTypeTitle);
     $('#tab-bar').append($newTitleCard);
+    $('#micro-title').addClass('active-tab');
 };
 
 const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
@@ -49,25 +52,22 @@ const callAPI = (city, state, i) => {
         });
 }
 
-
+const $breweries = $('<div>').attr('id', 'breweries');
 const findData = (city, state) => {
     const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
         .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
     $('#search-form').append($hoverForDefinition);
     const $tabBar = $('<div>').attr('id', 'tab-bar');
-    const $breweries = $('<div>').attr('id', 'breweries');
+    $('#entries').append($tabBar);
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
         }, 200 * i);
     };
-    $('#entries').append($tabBar);
-    $('#entries').append($breweries);
 };
 
 
 const $searchButton = $('#search');
-
 $searchButton.on('click', (event) => {
     event.preventDefault();
     $('#tooltip-instructions').remove();
@@ -77,6 +77,8 @@ $searchButton.on('click', (event) => {
     const $searchCity = $('#city').val();
     const $searchState = $('#state').val();
     findData($searchCity, $searchState);
+    findData.then($('#entries').append($breweries));
+    $('#breweries').addClass('active-tab');
 });
 
 $(window).on('mouseover', (event) => {
@@ -85,13 +87,25 @@ $(window).on('mouseover', (event) => {
         let $tooltipText = $('<p>').text($(`#${$(event.target).text()}-tooltip`).text());
         $tooltip.append($tooltipText);
         $(event.target).parent().append($tooltip);
-
         $(event.target).on('mouseout', (event) => {
             $(event.target).next().remove();
         });
     };
 });
 
+$(window).on('click', (event) => {
+    if ($(event.target).attr('class') === 'title-card') {
+        $('.active-tab').removeClass('active-tab');
+        $(event.target).addClass('active-tab');
+        $('#breweries').addClass('active-tab');
+        $('.entry-card').hide();
+        $(`.${$(event.target).children().eq(0).text()}`).show();
+    } else if ($(event.target).parent().attr('class') === 'title-card') {
+        $('.active-tab').removeClass('active-tab');
+        $(event.target).parent().addClass('active-tab');
+        $('#breweries').addClass('active-tab');
+        $('.entry-card').hide();
+        $(`.${$(event.target).text()}`).show();
+    }
+});
 
-
-// logData('atlanta', 'georgia');

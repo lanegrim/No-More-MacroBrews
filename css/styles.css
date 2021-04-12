@@ -31,6 +31,7 @@ h1 {
     background-color: #1a3c5a;
     padding: 1em 2em;
     border-radius: 5px;
+    margin-bottom: 1rem;
 }
 
 #search-prompt {
@@ -45,7 +46,7 @@ h1 {
 
 #tab-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: 1em;
     width: 100%;
 }
@@ -56,9 +57,11 @@ h1 {
     position: relative;
     box-sizing: border-box;
     width: 23%;
-    background-color: #3875aa;
+    margin-right: .25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    background-color: #1f5483;
+    color: #d9e2eb;
 }
 
 .title-card p{
@@ -75,7 +78,7 @@ h1 {
     font-family: 'Source Serif Pro', serif;
     text-align: center;
     margin: .5rem 0;
-    color: #d9e2eb;
+    color: inherit;
 }
 
 #breweries {
@@ -84,8 +87,14 @@ h1 {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    padding: 1em .5em 0 .5em;
-    background-color: #3875aa;
+    padding: 1em .75em 0 .75em;
+    background-color: #1f5483;
+    border-radius:  0 5px 5px 5px;
+}
+
+.active-tab {
+    background-color: #3875aa !important;
+    color:#fcfdfd !important;
 }
 
 .entry-card {
