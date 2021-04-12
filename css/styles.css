@@ -160,7 +160,7 @@ a, p{
 .tooltip {
     position:absolute;
     top: .5em;
-    left: 8em;
+    right: -16em;
     width: 150%;
     max-width: 800px;
     padding: .5em;
