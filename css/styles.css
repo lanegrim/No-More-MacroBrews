@@ -40,7 +40,8 @@ h1 {
     width:100%;
 }
 
-#search {
+#search,
+.map-button{
     background-color: #fcfdfd;
     border-radius: 5px;
 }
@@ -156,6 +157,7 @@ a, p{
 .map {
     box-sizing: border-box;
     width: 100%;
+    margin-top: 1em;
 }
 
 
@@ -231,7 +233,7 @@ a:hover {
 
     .map {
         width: 80%;
-        margin: 0 10% 0 10%;
+        margin: 1em 10% 0 10%;
     }
 }
 
@@ -249,7 +251,7 @@ a:hover {
 
     .map {
         width: 100%;
-        margin: 0;
+        margin: 1em 0 0 0;
     }
 
 }
