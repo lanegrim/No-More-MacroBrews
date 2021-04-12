@@ -29,7 +29,7 @@ addNewTitleCard = (type) => {
     $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
     $newTypeTitle = $('<h2>').text(type).addClass('type-title');
     $newTitleCard.append($newTypeTitle);
-    $('#entries').append($newTitleCard);
+    $('#tab-bar').append($newTitleCard);
 };
 
 const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
@@ -54,13 +54,14 @@ const findData = (city, state) => {
     $('#tooltip-instructions').remove();
     const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
         .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
-    $('#entries').append($hoverForDefinition);
-
+    $('#search-form').append($hoverForDefinition);
+    const $tabBar = $('<div>').attr('id', 'tab-bar');
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
-        }, 250 * i);
+        }, 200 * i);
     };
+    $('#entries').append($tabBar);
 };
 
 
@@ -68,6 +69,7 @@ const $searchButton = $('#search');
 
 $searchButton.on('click', (event) => {
     event.preventDefault();
+    $('#tab-bar').remove();
     $('.entry-card').remove();
     $('.title-card').remove();
     const $searchCity = $('#city').val();
