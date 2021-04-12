@@ -55,7 +55,7 @@ const callAPI = (city, state, i) => {
 const $breweries = $('<div>').attr('id', 'breweries');
 const findData = (city, state) => {
     const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
-        .attr('id', 'tooltip-instructions').css('color', '#d9e2eb');
+        .attr('id', 'tooltip-instructions').css('color', '#e5e7df');
     $('#search-form').append($hoverForDefinition);
     const $tabBar = $('<div>').attr('id', 'tab-bar');
     $('#entries').append($tabBar);

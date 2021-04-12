@@ -4,7 +4,7 @@ font-family: 'Source Serif Pro', serif; */
 body {
     box-sizing: border-box;
     margin: 0;
-    background-color: #d9e2eb;
+    background-color: #f3f5ef;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -16,7 +16,7 @@ body {
 h1 {
     width: 85%;
     max-width: 1500px;
-    color: #1a3c5a;
+    color: #4f6367;
     font-family: 'Source Serif Pro', serif;
     font-size: 4rem;
     margin: 0 0 .6rem 0;
@@ -28,14 +28,14 @@ h1 {
     box-sizing: border-box;
     width: 85%;
     max-width: 1500px;
-    background-color: #1a3c5a;
+    background-color: #4f6367;
     padding: 1em 2em;
     border-radius: 5px;
     margin-bottom: 1rem;
 }
 
 #search-prompt {
-    color: #d9e2eb;
+    color: #e5e7df;
     padding-bottom: .25rem;
     width:100%;
 }
@@ -61,13 +61,13 @@ h1 {
     margin-right: .25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #1f5483;
-    color: #d9e2eb;
+    background-color: #7a9e9f;
+    color: #e5e7df;
 }
 
 .title-card p{
     display: inline-block;
-    color: #d9e2eb;
+    color: #e5e7df;
     font-size: 1rem;
     font-weight: 400;
 }
@@ -89,13 +89,13 @@ h1 {
     justify-content: space-between;
     width: 100%;
     padding: 1em .75em 0 .75em;
-    background-color: #1f5483;
+    background-color: #7a9e9f;
     border-radius:  0 5px 5px 5px;
 }
 
 .active-tab {
-    background-color: #3875aa !important;
-    color:#fcfdfd !important;
+    background-color: #b8d8d8 !important;
+    color:#4F6367 !important;
 }
 
 .entry-card {
@@ -103,6 +103,7 @@ h1 {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     padding: 1em 1em;
     background-color: #fcfdfd;
@@ -112,12 +113,12 @@ h1 {
 
 .name-block {
     box-sizing: border-box;
-    width: 65%;
+    width: 60%;
 }
 
 .address-block {
     box-sizing: border-box;
-    width: 35%;
+    width: 30%;
 }
 
 .address-line2 {
@@ -127,13 +128,13 @@ h1 {
 .entry-name {
     font-size: 1.5rem;
     margin-bottom: .25em;
-    color: #1a3c5a;
+    color: #4f6367;
 }
 
 a, p{
     margin-top: .25em;
     margin-bottom: 0;
-    color: #1a3c5a;
+    color: #4f6367;
 }
 
 #search-prompt {
@@ -157,14 +158,14 @@ a, p{
     width: 150%;
     max-width: 800px;
     padding: .5em;
-    background: #e0e0e0;
+    background: #f5f4f4;
     border: 3px solid #2c626b;
     border-radius: 5px;
     z-index: 99;
 }
 
 .tooltip p {
-    color:#1a3c5a;
+    color:#4f6367;
 }
 
 
@@ -180,7 +181,7 @@ a, p{
 }
 
 a:hover {
-    color: #2c626b;
+    color: #b8d8d8;
 }
 
 /* media queries */
