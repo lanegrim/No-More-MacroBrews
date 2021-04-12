@@ -125,6 +125,8 @@ h1 {
 
 .address-block {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 30%;
 }
 
@@ -154,6 +156,11 @@ a, p{
     margin-bottom: .5em;
 }
 
+.map-button {
+    align-self: flex-end;
+    margin-top: .5em;
+}
+
 .map {
     box-sizing: border-box;
     width: 100%;
@@ -161,7 +168,6 @@ a, p{
     border: 5px solid #53A2BE;
     border-radius: 5px;
 }
-
 
 #definition-tooltips {
     display: none;
