@@ -57,6 +57,7 @@ h1 {
     position: relative;
     box-sizing: border-box;
     width: 23%;
+    max-width: 275px;
     margin-right: .25em;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -186,7 +187,14 @@ a:hover {
     }
 
     .tooltip {
-        width: 50%;
+        width: 150%;
+        left: 0;
+        top: 2rem;
+        font-size: 1.25em;
+    }
+
+    .type-title {
+        font-size: 1rem;
     }
 
 }

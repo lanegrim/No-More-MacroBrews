@@ -77,7 +77,7 @@ $searchButton.on('click', (event) => {
     const $searchCity = $('#city').val();
     const $searchState = $('#state').val();
     findData($searchCity, $searchState);
-    findData.then($('#entries').append($breweries));
+    $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
 });
 
