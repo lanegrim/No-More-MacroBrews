@@ -7,17 +7,20 @@ createCard = (data) => {
         $newNameBlock.append($newName);
 
         if (data[brew].website_url) {
-            const $newWebsite = $('<a>').text('Visit Their Website Here').attr('href', data[brew].website_url).attr('target', '_blank').addClass('website');
+            const $newWebsite = $('<a>').text('Visit Their Website').attr('href', data[brew].website_url).attr('target', '_blank').addClass('website');
             $newNameBlock.append($newWebsite);
         } else {
             const $newWebsite = $('<p>').text('Website Not Available').addClass('website');
             $newNameBlock.append($newWebsite);
         };
 
+        const $newFavoriteButton = $('<p>').text('Save for Later').addClass('fav-button');
+        $newNameBlock.append($newFavoriteButton);
+
         const $newStreetAddressBlock = $('<div>').addClass('address-block');
         const $newStreetAddressLine1 = $('<p>').addClass('address-line1').text(data[brew].street);
         const $newStreetAddressLine2 = $('<p>').text(`${data[brew].city}, ${data[brew].state} ${data[brew].postal_code}`).addClass('address-line2');
-        const $newMapButton = $('<button>').text('See it on a Map').addClass('map-button');
+        const $newMapButton = $('<p>').text('View Map').addClass('map-button');
         $newStreetAddressBlock.append($newStreetAddressLine1);
         $newStreetAddressBlock.append($newStreetAddressLine2);
         $newStreetAddressBlock.append($newMapButton);
@@ -122,6 +125,14 @@ $(window).on('click', (event) => {
         } else {
             $(event.target).parent().siblings().eq(1).toggle();
             $(event.target).parents().eq(1).addClass('current-map');
+        };
+    };
+});
+
+$(window).on('click', (event) => {
+    if ($(event.target).attr('class') === 'fav-button') {
+        const newFavorite = {
+
         };
     };
 });

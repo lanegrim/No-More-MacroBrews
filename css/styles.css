@@ -150,14 +150,24 @@ a, p{
     margin-top: 0;
 }
 
-.website {
+.website,
+.map-button,
+.fav-button {
     display: inline-block;
     text-decoration: none;
     margin-bottom: .5em;
+    padding: .25em;
+    background-color: #53A2BE;
+    color: #f0f7f9;
+    border-radius: 5px;
+}
+
+.website {
+    margin-right: .5em;
 }
 
 .map-button {
-    align-self: flex-end;
+    align-self: center;
     margin-top: .5em;
 }
 
@@ -193,7 +203,11 @@ a, p{
 
 /* pseudo-selectors */
 
-.type-title:hover {
+.type-title:hover,
+a:hover,
+.website:hover,
+.map-button:hover,
+.fav-button:hover {
     cursor: pointer;
     color:#FFBC42;
 }
@@ -206,10 +220,6 @@ a, p{
 .tooltip p::selection,
 .type-title::selection {
     background-color: transparent;
-}
-
-a:hover {
-    color: #FFBC42;
 }
 
 /* media queries */
@@ -234,7 +244,7 @@ a:hover {
 
 }
 
-@media(max-width: 400px) {
+@media(max-width: 450px) {
 
     h1 {
         font-size: 3rem;
