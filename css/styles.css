@@ -152,7 +152,8 @@ a, p{
 
 .website,
 .map-button,
-.fav-button {
+.fav-button,
+.saved {
     display: inline-block;
     text-decoration: none;
     margin-bottom: .5em;

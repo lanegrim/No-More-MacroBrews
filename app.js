@@ -16,8 +16,13 @@ createCard = (data) => {
             $newNameBlock.append($newWebsite);
         };
 
-        const $newFavoriteButton = $('<p>').text('Save for Later').addClass('fav-button');
-        $newNameBlock.append($newFavoriteButton);
+        if (localStorage.getItem(`${data[brew].id}`)) {
+            const $newFavoriteButton = $('<p>').text('Saved').addClass('saved');
+            $newNameBlock.append($newFavoriteButton);
+        } else {
+            const $newFavoriteButton = $('<p>').text('Save for Later').addClass('fav-button');
+            $newNameBlock.append($newFavoriteButton);
+        };
 
         const $newStreetAddressBlock = $('<div>').addClass('address-block');
         const $newStreetAddressLine1 = $('<p>').addClass('address-line1').text(data[brew].street);
@@ -143,5 +148,6 @@ $(window).on('click', (event) => {
             type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
         };
         localStorage.setItem(`${$(event.target).parent().siblings().eq(1).text()}`, JSON.stringify(newFavorite));
+        $(event.target).removeClass('fav-button').addClass('saved').text('Saved');
     };
 });
