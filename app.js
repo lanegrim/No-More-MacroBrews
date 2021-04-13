@@ -97,7 +97,7 @@ addFavoritesTab = () => {
     const $newFavoritesTab = $('<div>').addClass('title-card').attr('id', `favorites-tab`);
     const $newFavoritesTitle = $('<h2>').text('saved').addClass('favorites-title');
     $newFavoritesTab.append($newFavoritesTitle);
-    $('#tab-bar').append($newFavoritesTab);
+    $('#tab-bar').prepend($newFavoritesTab);
 }
 
 
@@ -130,6 +130,7 @@ const findData = (city, state) => {
             callAPI(city, state, i);
         }, 250 * i);
     };
+    addFavoritesTab();
 };
 
 /////////////////////////////////////////////////////
@@ -148,7 +149,7 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
     $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
-    window.setTimeout(addFavoritesTab, 1000);
+
 });
 
 $(window).on('mouseenter', (event) => {
