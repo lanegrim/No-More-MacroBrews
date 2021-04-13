@@ -234,6 +234,22 @@ a:hover {
 
 }
 
+@media(max-width: 400px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .type-title {
+        font-size: .75rem;
+    }
+
+    .tooltip {
+        width: 200%;
+        left: -2em;
+    }
+}
+
 @media(min-width: 1100px) {
     h1, #entries {
         width: 60%;

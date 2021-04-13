@@ -7,7 +7,7 @@ createCard = (data) => {
         $newNameBlock.append($newName);
 
         if (data[brew].website_url) {
-            const $newWebsite = $('<a>').text(data[brew].website_url).attr('href', data[brew].website_url).attr('target', '_blank').addClass('website');
+            const $newWebsite = $('<a>').text('Visit Their Website Here').attr('href', data[brew].website_url).attr('target', '_blank').addClass('website');
             $newNameBlock.append($newWebsite);
         } else {
             const $newWebsite = $('<p>').text('Website Not Available').addClass('website');
@@ -116,7 +116,7 @@ $(window).on('click', (event) => {
         $('.entry-card').removeClass('current-map');
         $('.map').hide();
         if ($(event.target).parent().siblings().eq(1).length === 0) {
-            const $newMap = $('<img>').addClass('map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}&markers=color:blue|label:!|${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}|&zoom=14&size=1100x450&maptype=roadmap&key=AIzaSyAKLOP67mzbsOniqbwdcOHikHn-EZ-ghL8`);
+            const $newMap = $('<img>').addClass('map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}&markers=color:blue|label:!|${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}|&zoom=15&size=1100x450&maptype=roadmap&key=AIzaSyAKLOP67mzbsOniqbwdcOHikHn-EZ-ghL8`);
             $(event.target).parents().eq(1).append($newMap)
             $(event.target).parents().eq(1).addClass('current-map');
         } else {
