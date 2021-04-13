@@ -128,7 +128,7 @@ const findData = (city, state) => {
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
-        }, 150 * i);
+        }, 250 * i);
     };
 };
 
@@ -148,7 +148,7 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
     $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
-    window.setTimeout(addFavoritesTab, 600);
+    window.setTimeout(addFavoritesTab, 1000);
 });
 
 $(window).on('mouseenter', (event) => {
@@ -189,7 +189,6 @@ $(window).on('click', (event) => {
         $(`.${$(event.target).text()}`).show();
     } else if ($(event.target).parent().attr('id') === 'favorites-tab') {
         if (localStorage.length > 0) {
-            console.log('building favorites');
             buildFavorites();
         };
         $('.entry-card').hide();
