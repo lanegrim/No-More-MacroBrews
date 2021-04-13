@@ -220,7 +220,11 @@ a:hover,
 }
 
 .tooltip p::selection,
-.type-title::selection {
+.type-title::selection,
+.website::selection,
+.map-button::selection,
+.fav-button::selection,
+.saved::selection {
     background-color: transparent;
 }
 
