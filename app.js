@@ -1,4 +1,4 @@
-const favorites = [];
+console.log(localStorage);
 
 createCard = (data) => {
     for (const brew in data) {
@@ -28,6 +28,8 @@ createCard = (data) => {
         $newStreetAddressBlock.append($newMapButton);
         $newEntry.append($newStreetAddressBlock);
 
+        $newEntry.append($('<p>').text(data[brew].id).hide());
+
         $('#breweries').append($newEntry);
     };
     $('.entry-card').hide();
@@ -49,7 +51,6 @@ const callAPI = (city, state, i) => {
         url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '&by_state=' + state
     }).then(
         (data) => {
-            console.log(data);
             if (data.length > 0) {
                 addNewTitleCard(breweryTypes[i]);
                 createCard(data);
@@ -134,14 +135,13 @@ $(window).on('click', (event) => {
 
 $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'fav-button') {
-        favorites.push({
+        const newFavorite = {
             name: `${$(event.target).siblings().eq(0).text()}`,
             website_url: `${$(event.target).siblings().eq(1).text()}`,
             streetAddressLine1: `${$(event.target).parent().siblings().eq(0).children().eq(0).text()}`,
             streetAddressLine2: `${$(event.target).parent().siblings().eq(0).children().eq(1).text()}`,
             type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
-        });
-        console.log(favorites);
-
+        };
+        localStorage.setItem(`${$(event.target).parent().siblings().eq(1).text()}`, JSON.stringify(newFavorite));
     };
 });
