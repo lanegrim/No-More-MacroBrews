@@ -1,5 +1,6 @@
 console.log(localStorage);
 
+//creates and adds each result to the page as an individual card
 createCard = (data) => {
     for (const brew in data) {
         const $newEntry = $('<div>').addClass('entry-card').addClass(data[brew].brewery_type);
@@ -41,6 +42,7 @@ createCard = (data) => {
     $('.micro').show();
 };
 
+//similar to the above function, but populates the favorites/saved tab with data from localStorage
 buildFavorites = () => {
     $('.saved').remove();
     for (let i = 0; i < localStorage.length; i++) {
@@ -84,7 +86,7 @@ buildFavorites = () => {
 };
 
 
-
+//creates new tabs for each of the brewery types that retuned results in a given search
 addNewTitleCard = (type) => {
     const $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
     const $newTypeTitle = $('<h2>').text(type).addClass('type-title');
@@ -93,6 +95,8 @@ addNewTitleCard = (type) => {
     $('#micro-title').addClass('active-tab');
 };
 
+//similar to the above function, but for the favorites/saved tab
+//this will always put the saved tab first
 addFavoritesTab = () => {
     const $newFavoritesTab = $('<div>').addClass('title-card').attr('id', `favorites-tab`);
     const $newFavoritesTitle = $('<h2>').text('saved').addClass('favorites-title');
@@ -100,9 +104,8 @@ addFavoritesTab = () => {
     $('#tab-bar').prepend($newFavoritesTab);
 }
 
-
+//handles the indivudal requests to the OpenBreweryDB API
 const breweryTypes = ['micro', 'brewpub', 'regional'];
-
 const callAPI = (city, state, i) => {
     $.ajax({
         url: 'https://api.openbrewerydb.org/breweries?per_page=50&by_type=' + breweryTypes[i] + '&by_city=' + city + '&by_state=' + state
@@ -118,6 +121,7 @@ const callAPI = (city, state, i) => {
         });
 }
 
+//loops over the callAPI function for each of the desired types of brewery for every search
 const $breweries = $('<div>').attr('id', 'breweries');
 const findData = (city, state) => {
     const $hoverForDefinition = $('<p>').text('Hover over each brewery type to see a definition.')
@@ -134,9 +138,10 @@ const findData = (city, state) => {
 };
 
 /////////////////////////////////////////////////////
-///////////////////EVENT HANDLERS////////////////////
+////////////EVENT LISTENERS AND HANDLERS/////////////
 /////////////////////////////////////////////////////
 
+//directs the seach field values to the API request function and populates the page
 const $searchButton = $('#search');
 $searchButton.on('click', (event) => {
     event.preventDefault();
@@ -149,9 +154,9 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
     $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
-
 });
 
+//Triggers the brewery type definition tooltips when users mouseover the tabs
 $(window).on('mouseenter', (event) => {
     if ($(event.target).attr('class') === 'type-title') {
         let $tooltip = $('<div>').addClass('tooltip');
@@ -164,6 +169,7 @@ $(window).on('mouseenter', (event) => {
     };
 });
 
+//switches the active tab to whichever tab is clicked -- hides all others
 $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'title-card') {
         $('.active-tab').removeClass('active-tab');
@@ -180,6 +186,7 @@ $(window).on('click', (event) => {
     };
 });
 
+//similar to the above event handler, but updates the favorites/saved tab every time the user returns to it
 $(window).on('click', (event) => {
     if ($(event.target).attr('id') === 'favorites-tab') {
         if (localStorage.length > 0) {
@@ -197,6 +204,8 @@ $(window).on('click', (event) => {
     };
 });
 
+//requests a static map from Google Maps Static API centered on the location of the brewery when the 'view map' button is pressed
+//when a new map is requested, the current map collapses
 $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'map-button') {
         $('.entry-card').removeClass('current-map');
@@ -212,6 +221,7 @@ $(window).on('click', (event) => {
     };
 });
 
+//handles the saving of entries to localStorage and the toggling of the 'saved' and 'save for later' buttons
 $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'fav-button') {
         const newFavorite = {
