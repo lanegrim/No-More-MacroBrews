@@ -17,7 +17,7 @@ createCard = (data) => {
         };
 
         if (localStorage.getItem(`${data[brew].id}`)) {
-            const $newFavoriteButton = $('<p>').text('Saved').addClass('saved');
+            const $newFavoriteButton = $('<p>').text('Saved').addClass('savedButton');
             $newNameBlock.append($newFavoriteButton);
         } else {
             const $newFavoriteButton = $('<p>').text('Save for Later').addClass('fav-button');
@@ -40,6 +40,50 @@ createCard = (data) => {
     $('.entry-card').hide();
     $('.micro').show();
 };
+////////////////////////////////
+buildFavorites = () => {
+    $('.saved').remove();
+    for (let i = 0; i < localStorage.length; i++) {
+        const currentFavorite = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+        const $newEntry = $('<div>').addClass('entry-card').addClass(`saved`);
+        const $newNameBlock = $('<div>').addClass('name-block');
+        $newEntry.append($newNameBlock);
+        const $newName = $('<p>').text(currentFavorite.name).addClass('entry-name');
+        $newNameBlock.append($newName);
+
+        if (currentFavorite.website_url.includes(".")) {
+            const $newWebsite = $('<a>').text('Visit Their Website').attr('href', currentFavorite.website_url).attr('target', '_blank').addClass('website');
+            $newNameBlock.append($newWebsite);
+        } else {
+            const $newWebsite = $('<p>').text('Website Not Available').addClass('website');
+            $newNameBlock.append($newWebsite);
+        };
+
+        if (localStorage.getItem(`${currentFavorite.id}`)) {
+            const $newFavoriteButton = $('<p>').text('Saved').addClass('savedButton');
+            $newNameBlock.append($newFavoriteButton);
+        } else {
+            const $newFavoriteButton = $('<p>').text('Save for Later').addClass('fav-button');
+            $newNameBlock.append($newFavoriteButton);
+        };
+
+        const $newStreetAddressBlock = $('<div>').addClass('address-block');
+        const $newStreetAddressLine1 = $('<p>').addClass('address-line1').text(currentFavorite.streetAddressLine1);
+        const $newStreetAddressLine2 = $('<p>').text(`${currentFavorite.streetAddressLine2}`).addClass('address-line2');
+        const $newMapButton = $('<p>').text('View Map').addClass('map-button');
+        $newStreetAddressBlock.append($newStreetAddressLine1);
+        $newStreetAddressBlock.append($newStreetAddressLine2);
+        $newStreetAddressBlock.append($newMapButton);
+        $newEntry.append($newStreetAddressBlock);
+
+        $newNameBlock.append($('<p>').text(currentFavorite.id).addClass('entry-id').hide());
+
+        $('#breweries').append($newEntry);
+    };
+};
+///////////////////////////////////
+
 
 addNewTitleCard = (type) => {
     const $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
@@ -84,7 +128,7 @@ const findData = (city, state) => {
     for (let i = 0; i < breweryTypes.length; i++) {
         window.setTimeout(() => {
             callAPI(city, state, i);
-        }, 200 * i);
+        }, 150 * i);
     };
 };
 
@@ -101,7 +145,7 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
     $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
-    window.setTimeout(addFavoritesTab, 900);
+    window.setTimeout(addFavoritesTab, 600);
 });
 
 /////////////////////////////////////////////////////
@@ -134,7 +178,25 @@ $(window).on('click', (event) => {
         $('#breweries').addClass('active-tab');
         $('.entry-card').hide();
         $(`.${$(event.target).text()}`).show();
-    }
+    };
+});
+
+$(window).on('click', (event) => {
+    if ($(event.target).attr('id') === 'favorites-tab') {
+        if (localStorage.length > 0) {
+            console.log('building favorites');
+            buildFavorites();
+        };
+        $('.entry-card').hide();
+        $(`.${$(event.target).text()}`).show();
+    } else if ($(event.target).parent().attr('id') === 'favorites-tab') {
+        if (localStorage.length > 0) {
+            console.log('building favorites');
+            buildFavorites();
+        };
+        $('.entry-card').hide();
+        $(`.${$(event.target).text()}`).show();
+    };
 });
 
 $(window).on('click', (event) => {
@@ -159,12 +221,13 @@ $(window).on('click', (event) => {
             website_url: `${$(event.target).siblings().eq(1).text()}`,
             streetAddressLine1: `${$(event.target).parent().siblings().eq(0).children().eq(0).text()}`,
             streetAddressLine2: `${$(event.target).parent().siblings().eq(0).children().eq(1).text()}`,
-            type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
+            brewery_type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
+            id: `${$(event.target).siblings().eq(2).text()}`
         };
         localStorage.setItem(`${$(event.target).siblings().eq(2).text()}`, JSON.stringify(newFavorite));
-        $(event.target).removeClass('fav-button').addClass('saved').text('Saved');
-    } else if ($(event.target).attr('class') === 'saved') {
+        $(event.target).removeClass('fav-button').addClass('savedButton').text('Saved');
+    } else if ($(event.target).attr('class') === 'savedButton') {
         localStorage.removeItem(`${$(event.target).siblings().eq(2).text()}`);
-        $(event.target).addClass('fav-button').removeClass('saved').text('Save for Later');
+        $(event.target).addClass('fav-button').removeClass('savedButton').text('Save for Later');
     };
 });

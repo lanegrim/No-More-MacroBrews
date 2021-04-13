@@ -154,7 +154,7 @@ a, p{
 .website,
 .map-button,
 .fav-button,
-.saved {
+.savedButton {
     display: inline-block;
     text-decoration: none;
     margin-bottom: .5em;
@@ -211,7 +211,7 @@ a:hover,
 .website:hover,
 .map-button:hover,
 .fav-button:hover,
-.saved:hover {
+.savedButton:hover {
     cursor: pointer;
     color:#FFBC42;
 }
@@ -227,7 +227,7 @@ a:hover,
 .website::selection,
 .map-button::selection,
 .fav-button::selection,
-.saved::selection {
+.savedButton::selection {
     background-color: transparent;
 }
 
