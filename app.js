@@ -132,6 +132,9 @@ const findData = (city, state) => {
     };
 };
 
+/////////////////////////////////////////////////////
+///////////////////EVENT HANDLERS////////////////////
+/////////////////////////////////////////////////////
 
 const $searchButton = $('#search');
 $searchButton.on('click', (event) => {
@@ -147,11 +150,6 @@ $searchButton.on('click', (event) => {
     $('#breweries').addClass('active-tab');
     window.setTimeout(addFavoritesTab, 600);
 });
-
-/////////////////////////////////////////////////////
-///////////////////EVENT HANDLERS////////////////////
-/////////////////////////////////////////////////////
-
 
 $(window).on('mouseenter', (event) => {
     if ($(event.target).attr('class') === 'type-title') {
