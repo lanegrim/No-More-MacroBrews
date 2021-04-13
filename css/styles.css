@@ -208,7 +208,8 @@ a, p{
 a:hover,
 .website:hover,
 .map-button:hover,
-.fav-button:hover {
+.fav-button:hover,
+.saved:hover {
     cursor: pointer;
     color:#FFBC42;
 }

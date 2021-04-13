@@ -149,5 +149,8 @@ $(window).on('click', (event) => {
         };
         localStorage.setItem(`${$(event.target).parent().siblings().eq(1).text()}`, JSON.stringify(newFavorite));
         $(event.target).removeClass('fav-button').addClass('saved').text('Saved');
+    } else if ($(event.target).attr('class') === 'saved') {
+        localStorage.removeItem(`${$(event.target).parent().siblings().eq(1).text()}`);
+        $(event.target).addClass('fav-button').removeClass('saved').text('Save for Later');
     };
 });
