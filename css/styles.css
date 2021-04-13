@@ -226,7 +226,8 @@ a:hover,
 .website::selection,
 .map-button::selection,
 .fav-button::selection,
-.savedButton::selection {
+.savedButton::selection,
+.favorites-title::selection {
     background-color: transparent;
 }
 
