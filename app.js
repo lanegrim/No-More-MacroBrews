@@ -40,7 +40,7 @@ createCard = (data) => {
     $('.entry-card').hide();
     $('.micro').show();
 };
-////////////////////////////////
+
 buildFavorites = () => {
     $('.saved').remove();
     for (let i = 0; i < localStorage.length; i++) {
@@ -82,7 +82,7 @@ buildFavorites = () => {
         $('#breweries').append($newEntry);
     };
 };
-///////////////////////////////////
+
 
 
 addNewTitleCard = (type) => {
@@ -229,5 +229,14 @@ $(window).on('click', (event) => {
     } else if ($(event.target).attr('class') === 'savedButton') {
         localStorage.removeItem(`${$(event.target).siblings().eq(2).text()}`);
         $(event.target).addClass('fav-button').removeClass('savedButton').text('Save for Later');
+        buildFavorites();
+        for (const card in $('#breweries').children()) {
+            if ($('#breweries').children().eq(card).children().eq(0).children().eq(2).attr('class') === 'savedButton') {
+                if ($('#breweries').children().eq(card).children().eq(0).children().eq(3).text()
+                    === $(event.target).siblings().eq(2).text()) {
+                    $('#breweries').children().eq(card).children().eq(0).children().eq(2).addClass('fav-button').removeClass('savedButton').text('Save for Later');
+                };
+            };
+        };
     };
 });
