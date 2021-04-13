@@ -33,7 +33,7 @@ createCard = (data) => {
         $newStreetAddressBlock.append($newMapButton);
         $newEntry.append($newStreetAddressBlock);
 
-        $newEntry.append($('<p>').text(data[brew].id).hide());
+        $newNameBlock.append($('<p>').text(data[brew].id).addClass('entry-id').hide());
 
         $('#breweries').append($newEntry);
     };
@@ -42,14 +42,22 @@ createCard = (data) => {
 };
 
 addNewTitleCard = (type) => {
-    $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
-    $newTypeTitle = $('<h2>').text(type).addClass('type-title');
+    const $newTitleCard = $('<div>').addClass('title-card').attr('id', `${type}-title`);
+    const $newTypeTitle = $('<h2>').text(type).addClass('type-title');
     $newTitleCard.append($newTypeTitle);
     $('#tab-bar').append($newTitleCard);
     $('#micro-title').addClass('active-tab');
 };
 
-const breweryTypes = ['micro', 'brewpub', 'regional', 'nano'];
+addFavoritesTab = () => {
+    const $newFavoritesTab = $('<div>').addClass('title-card').attr('id', `favorites-tab`);
+    const $newFavoritesTitle = $('<h2>').text('saved').addClass('favorites-title');
+    $newFavoritesTab.append($newFavoritesTitle);
+    $('#tab-bar').append($newFavoritesTab);
+}
+
+
+const breweryTypes = ['micro', 'brewpub', 'regional'];
 
 const callAPI = (city, state, i) => {
     $.ajax({
@@ -93,7 +101,13 @@ $searchButton.on('click', (event) => {
     findData($searchCity, $searchState);
     $('#entries').append($breweries);
     $('#breweries').addClass('active-tab');
+    window.setTimeout(addFavoritesTab, 900);
 });
+
+/////////////////////////////////////////////////////
+///////////////////EVENT HANDLERS////////////////////
+/////////////////////////////////////////////////////
+
 
 $(window).on('mouseenter', (event) => {
     if ($(event.target).attr('class') === 'type-title') {
@@ -147,10 +161,10 @@ $(window).on('click', (event) => {
             streetAddressLine2: `${$(event.target).parent().siblings().eq(0).children().eq(1).text()}`,
             type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
         };
-        localStorage.setItem(`${$(event.target).parent().siblings().eq(1).text()}`, JSON.stringify(newFavorite));
+        localStorage.setItem(`${$(event.target).siblings().eq(2).text()}`, JSON.stringify(newFavorite));
         $(event.target).removeClass('fav-button').addClass('saved').text('Saved');
     } else if ($(event.target).attr('class') === 'saved') {
-        localStorage.removeItem(`${$(event.target).parent().siblings().eq(1).text()}`);
+        localStorage.removeItem(`${$(event.target).siblings().eq(2).text()}`);
         $(event.target).addClass('fav-button').removeClass('saved').text('Save for Later');
     };
 });

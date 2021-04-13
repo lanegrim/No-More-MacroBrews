@@ -78,7 +78,8 @@ h1 {
     font-weight: 400;
 }
 
-.type-title{
+.type-title,
+.favorites-title{
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
@@ -205,6 +206,7 @@ a, p{
 /* pseudo-selectors */
 
 .type-title:hover,
+.favorites-title:hover,
 a:hover,
 .website:hover,
 .map-button:hover,
@@ -214,7 +216,8 @@ a:hover,
     color:#FFBC42;
 }
 
-.active-tab .type-title:hover {
+.active-tab .type-title:hover,
+.active-tab .favorites-title:hover {
     cursor: default;
     color:#0F3457;
 }
@@ -244,7 +247,8 @@ a:hover,
         font-size: 1.25em;
     }
 
-    .type-title {
+    .type-title,
+    .favorites-title {
         font-size: 1rem;
     }
 
@@ -256,7 +260,8 @@ a:hover,
         font-size: 3rem;
     }
 
-    .type-title {
+    .type-title,
+    .favorites-title {
         font-size: .75rem;
     }
 
