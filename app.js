@@ -39,7 +39,8 @@ createCard = (data) => {
         $('#breweries').append($newEntry);
     };
     $('.entry-card').hide();
-    $('.micro').show();
+    $(`.${$('#breweries').children().eq(0).attr('class').split(' ')[1]}`).show();
+    $(`#${$('#breweries').children().eq(0).attr('class').split(' ')[1]}-title`).addClass('active-tab');
 };
 
 //similar to the above function, but populates the favorites/saved tab with data from localStorage
@@ -92,7 +93,6 @@ addNewTitleCard = (type) => {
     const $newTypeTitle = $('<h2>').text(type).addClass('type-title');
     $newTitleCard.append($newTypeTitle);
     $('#tab-bar').append($newTitleCard);
-    $('#micro-title').addClass('active-tab');
 };
 
 //similar to the above function, but for the favorites/saved tab
