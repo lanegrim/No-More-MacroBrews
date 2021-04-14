@@ -256,18 +256,25 @@ a:hover,
 
 @media(max-width: 450px) {
 
-    h1 {
-        font-size: 3rem;
+    #entries {
+        width: 95%;
+        padding: 1em 1em;
     }
 
-    .type-title,
-    .favorites-title {
-        font-size: .75rem;
+    h1 {
+        font-size: 3rem;
     }
 
     .tooltip {
         width: 200%;
         left: -2em;
+    }
+
+    #city,
+    #state {
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: .5em;
     }
 }
 
