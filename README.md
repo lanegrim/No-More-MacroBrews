@@ -11,9 +11,13 @@
 ## Approach
 I began by simply getting a list populated with the information from a search of the Open Brewerys Database. One this was accomplished, I formatted each result as a card in a list separated by brewery type. This format displayed the relevant information correctly and reliably, but if a user wanted to see resutls from the second, third, or fourth sections of the list, they would need to scroll quite a distance, depending on the seach. To ease this difficulty, I refactored the code to display the result cards in four separate lists, separated as tabs. This way, users can see whichever kind of brewery they're specifically searchinf for immediately. 
 
-Following this, I integrated the Google Maps Static API to allow users to request a pinned map of the area around a given brewery.
+Following this, I integrated the Google Maps Static API to allow users to request a pinned map of the area around a given brewery. At this point, I was happy with the amount of information and access being provided to users, but I want to streamline the process and add additional functionality. Utilizing localStorage, I added functionality that allwos users to save breweries for later in a separate "saved" tab. After users have saved at least one brewery, this tab will load on window load, before completing the first search of the session.
 
 ## Visit the Live Site
-
+https://nomoremacrobrews.netlify.app/
 
 ## Unresolved Issues and Opportunities for Expansion
+- The brewery type description tooltips work well on desktops, but are touchy and annoying on mobile.
+- While users can zoom into the image, the default map size on mobile is very small. This may be improved through tightening the focus of the requested map when the screen is small enough.
+- Users can currently access a static map centered on the location of any brewery. It would be nice to exchange these for interactive maps from the Google Maps JavaScript API
+- The tab bar populates with multiples of tabs if the user spams the search button
