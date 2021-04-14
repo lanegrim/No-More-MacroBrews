@@ -240,7 +240,7 @@ $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'fav-button') {
         const newFavorite = {
             name: `${$(event.target).siblings().eq(0).text()}`,
-            website_url: `${$(event.target).siblings().eq(1).text()}`,
+            website_url: `${$(event.target).siblings().eq(1).attr('href')}`,
             streetAddressLine1: `${$(event.target).parent().siblings().eq(0).children().eq(0).text()}`,
             streetAddressLine2: `${$(event.target).parent().siblings().eq(0).children().eq(1).text()}`,
             brewery_type: `${$(event.target).parents().eq(1).attr('class').split(" ")[1]}`,
