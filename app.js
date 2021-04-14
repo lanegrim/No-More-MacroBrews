@@ -225,7 +225,7 @@ $(window).on('click', (event) => {
         $('.entry-card').removeClass('current-map');
         $('.map').hide();
         if ($(event.target).parent().siblings().eq(1).length === 0) {
-            const $newMap = $('<img>').addClass('map').attr('src', `https://maps.googleapis.com/maps/api/staticmap?center=${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}&markers=color:blue|label:!|${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}|&zoom=15&size=1100x450&maptype=roadmap&key=AIzaSyAKLOP67mzbsOniqbwdcOHikHn-EZ-ghL8`);
+            const $newMap = $('<iframe>').addClass('map').attr('src', `https://google.com/maps/embed/v1/place?key=AIzaSyAKLOP67mzbsOniqbwdcOHikHn-EZ-ghL8&q=${$(event.target).siblings().eq(0).text()}+${$(event.target).siblings().eq(1).text()}`);
             $(event.target).parents().eq(1).append($newMap);
             $(event.target).parents().eq(1).addClass('current-map');
         } else {
