@@ -218,7 +218,7 @@ $(window).on('click', (event) => {
     };
 });
 
-//requests a static map from Google Maps Static API centered on the location of the brewery when the 'view map' button is pressed
+//requests an embedded map from Google Maps JavaScript API centered on the location of the brewery when the 'view map' button is pressed
 //when a new map is requested, the current map collapses
 $(window).on('click', (event) => {
     if ($(event.target).attr('class') === 'map-button') {
