@@ -137,6 +137,20 @@ const findData = (city, state) => {
     addFavoritesTab();
 };
 
+const loadFavoritesFirst = () => {
+    if (localStorage.length > 0) {
+        const $tabBar = $('<div>').attr('id', 'tab-bar');
+        $('#entries').append($tabBar);
+        $('#entries').append($($breweries));
+        $breweries.addClass('active-tab');
+        buildFavorites();
+        addFavoritesTab();
+        $('#favorites-tab').addClass('active-tab');
+    };
+};
+
+loadFavoritesFirst();
+
 /////////////////////////////////////////////////////
 ////////////EVENT LISTENERS AND HANDLERS/////////////
 /////////////////////////////////////////////////////
