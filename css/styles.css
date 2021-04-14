@@ -273,8 +273,12 @@ a:hover,
     #city,
     #state {
         box-sizing: border-box;
-        width: 100%;
+        width: 80%;
         margin-bottom: .5em;
+    }
+
+    #search {
+        width: 40%;
     }
 }
 

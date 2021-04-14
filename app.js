@@ -137,6 +137,7 @@ const findData = (city, state) => {
     addFavoritesTab();
 };
 
+//Loads the favorites tab before making a search if there are any saved entries
 const loadFavoritesFirst = () => {
     if (localStorage.length > 0) {
         const $tabBar = $('<div>').attr('id', 'tab-bar');
@@ -148,7 +149,6 @@ const loadFavoritesFirst = () => {
         $('#favorites-tab').addClass('active-tab');
     };
 };
-
 loadFavoritesFirst();
 
 /////////////////////////////////////////////////////
